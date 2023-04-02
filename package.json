@@ -1,0 +1,19 @@
+{
+  "name": "webpr-toolkit",
+  "version": "1.0.0",
+  "description": "A toolkit with various of utility functions and tools learned in webpr course",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "utilities",
+    "webpr",
+    "toolkit",
+    "tools",
+    "useful-tools",
+    "utils"
+  ],
+  "author": "Hanan Mufti",
+  "license": "MIT"
+}
