@@ -1,3 +1,7 @@
+/**
+ * @module index.lambda snake game implemented with lambda expressions.
+ */
+
 const MAX = 20
 
 const north = Pair(0)(-1)
@@ -22,6 +26,11 @@ const pairPlus = a => b => Pair(a(fst) + b(fst))(a(snd) + b(snd))
 // Function and Pair = Pair  // Functor
 const pairMap = f => pair => Pair(f(pair(fst)))(f(pair(snd)))
 
+/**
+ * Set a new orientation of the snake
+ *
+ * @param {pair} orientation The new orientation of the player
+ */
 function changeDirection(orientation) {
     const idx = orientation.indexOf(direction)
     direction = orientation[idx + 1]
@@ -59,6 +68,13 @@ const startWithCanvas = canvas => {
     }, 1000 / 5)
 }
 
+/**
+ * Check if the element is on the board or move it on the board
+ *
+ * @param {number} max The max game size
+ * @param {number} x The current position
+ * @returns {number}  position of the snake
+ */
 const inBounds = x => {
     if (x < 0) {
         return MAX - 1
@@ -69,6 +85,9 @@ const inBounds = x => {
     return x
 }
 
+/**
+ * Prepare the next board after one step
+ */
 function nextBoard() {
     const oldHead = snake[0]
 
@@ -85,6 +104,11 @@ function nextBoard() {
     snake.unshift(head) // put head at front of the list
 }
 
+/**
+ * Display the game elements
+ *
+ * @param context The game context
+ */
 function display(context) {
     // clear
     context.fillStyle = 'black'
@@ -100,6 +124,12 @@ function display(context) {
     fillBox(context, food)
 }
 
+/**
+ * Draw a game element
+ *
+ * @param context The game context
+ * @param element The game element to fill
+ */
 function fillBox(context, element) {
     context.fillRect(element(fst) * 20 + 1, element(snd) * 20 + 1, 18, 18)
 }
