@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>OOPSIE</title>
+        <style>
+            body {
+                color: aliceblue;
+                background: black;
+            }
+            .field {
+                float: left;
+                margin: 0.2em;
+                background: white;
+                width: 3em;
+                height: 3em;
+                border-color: white;
+                border-width: 3px;
+                border-style: solid;
+            }
+            .fallback {
+                border-color: aqua;
+                border-width: 3px;
+            }
+            .progress {
+                background: aqua;
+            }
+            #dice {
+                clear: both;
+            }
+        </style>
+        <script src="index.js"></script>
+    </head>
+
+    <body onload="start()">
+        <div id="fields"></div>
+
+        <div id="dice">[]</div>
+
+        <div>
+            <button onclick="dice()">throw dice</button>
+            <button onclick="turn()">turn</button>
+        </div>
+    </body>
+</html>
