@@ -1,4 +1,7 @@
 // player class with fallback and progress
+
+export { dice, turn, display, start, player }
+
 /**
  * @typedef PlayerType
  * @property { () => Number } getFallbackIndex

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Modules | OOPSIE</title>
+        <style>
+            body {
+                color: aliceblue;
+                background: black;
+            }
+            .field {
+                float: left;
+                margin: 0.2em;
+                background: white;
+                width: 3em;
+                height: 3em;
+                border-color: white;
+                border-width: 3px;
+                border-style: solid;
+            }
+            .fallback {
+                border-color: aqua;
+                border-width: 3px;
+            }
+            .progress {
+                background: aqua;
+            }
+            #dice {
+                clear: both;
+            }
+        </style>
+        <script type="module">
+            import { start, dice, turn, display, player } from '../../js_games/oopsie/index.js'
+            /**
+             * This is module scoped. So, you can't make use of the functions yet.
+             * The dice, turn and start won't work now!
+             *
+             * One way to make this work is to attach the functions you want to use to the window object,
+             * which is the global scope in a browser context.
+             */
+            window.dice = dice
+            window.start = start
+            window.turn = turn
+            window.player = player
+            window.display = display
+            /**
+             * However, keep in mind that it's generally considered a best practice to avoid polluting the
+             * global scope as much as possible!
+             */
+        </script>
+    </head>
+    <body onload="start()">
+        <div id="fields"></div>
+
+        <div id="dice">[]</div>
+
+        <div>
+            <button onclick="dice()">throw dice</button>
+            <button onclick="turn()">turn</button>
+        </div>
+    </body>
+</html>
